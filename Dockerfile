@@ -5,6 +5,9 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
+# Install Confluent CLI
+RUN curl -sL https://cnfl.io/cli | sh -s -- -b /usr/local/bin
+
 COPY . .
 
 EXPOSE 8000
